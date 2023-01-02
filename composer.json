@@ -17,7 +17,8 @@
         },
         "files": [
             "app/Helpers/DotEnv.php",
-            "app/Helpers/Config.php"
+            "app/Helpers/Config.php",
+            "app/Helpers/Helpers.php"
         ]
     },
     "require": {

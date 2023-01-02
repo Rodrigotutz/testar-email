@@ -11,6 +11,9 @@ class Web extends Controller {
     }
 
     public function home(): void {
+        $this->view->addData([
+            "title" => "Página Inicial | " . getenv("APP_NAME")
+        ]);
         echo $this->view->render("home");
     }
 
