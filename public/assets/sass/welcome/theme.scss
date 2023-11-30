@@ -1,0 +1,13 @@
+.messages {
+    position: fixed;
+    bottom: 5px;
+    right: 40px;
+}
+
+@media(max-width: 800px) {
+    .messages {
+        right: 0;
+        margin: 35px;
+        text-align: center;
+    }
+}
