@@ -13,7 +13,7 @@ class Web extends Controller {
 
     public function home(): void {
         $this->view->addData([
-            "title" => "Página Inicial | " . getenv("APP_NAME")
+            "title" => getenv("APP_NAME")
         ]);
         echo $this->view->render("home");
     }
@@ -34,7 +34,7 @@ class Web extends Controller {
 
         $mail = new Mail($host, $port, $secure, $user, $pass);
 
-        $mail->add('Teste de e-mail', "<h1>$message</h1> <h3><a href='https://rodrigotutz.com'>htts://rodrigotutz.com</a></h3>", $fromName, $mailFrom);
+        $mail->add('Teste de e-mail', "<h1>$message</h1>", $fromName, $mailFrom);
 
         if(!$mail->send()) {
             $this->router->redirect('web.home', ['error' => 'invalid-credentials']);
