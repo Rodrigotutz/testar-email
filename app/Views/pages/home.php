@@ -1,7 +1,7 @@
 <?php $this->layout("components/theme") ?>
 
 <div class="container d-flex justify-content-center align-items-center flex-column mt-5 mt-md-0 mb-5 mb-md-0" style="min-height: 100vh">
-    <h2 class="text-center">Testar SMTP:</h2>
+    <h2 class="text-center">SMTP</h2>
     <form class="row mt-3" style="width: 70%;" method="POST" action="<?= $router->route('web.send') ?>">
         <div class="col-12 col-md-7 mt-3">
             <label for="host">Host SMTP:</label>
@@ -42,7 +42,7 @@
         </div>
 
         <div class="text-center mt-3">
-            <button class="btn btn-dark" type="submit" style="width:80px">Send</button>
+            <button class="btn btn-dark" type="submit" style="width:80px">Enviar</button>
         </div>
         
     </form>
