@@ -13,9 +13,17 @@ class Web extends Controller {
 
     public function home(): void {
         $this->view->addData([
+            "title" => "Página Inicial"
+        ]);
+
+        echo $this->view->render("home");
+    }
+
+    public function email(): void {
+        $this->view->addData([
             "title" => getenv("APP_NAME")
         ]);
-        echo $this->view->render("home");
+        echo $this->view->render("smtp");
     }
 
     public function send($data) {
@@ -29,7 +37,7 @@ class Web extends Controller {
         $message = filter_var($data['message'], FILTER_DEFAULT);
 
         if(!$host || !$port || !$user || !$pass || !$fromName || !$mailFrom) {
-            $this->router->redirect('web.home', ['error' => 'invalid-fields']);
+            $this->router->redirect('web.email', ['error' => 'invalid-fields']);
         }
 
         $mail = new Mail($host, $port, $secure, $user, $pass);
@@ -37,10 +45,18 @@ class Web extends Controller {
         $mail->add('Teste de e-mail', "<h1>$message</h1>", $fromName, $mailFrom);
 
         if(!$mail->send()) {
-            $this->router->redirect('web.home', ['error' => 'invalid-credentials']);
+            $this->router->redirect('web.email', ['error' => 'invalid-credentials']);
         }
 
-        $this->router->redirect('web.home', ['success' => "email-send"]);
+        $this->router->redirect('web.email', ['success' => "email-send"]);
+    }
+
+    public function tips(): void {
+        $this->view->addData([
+            "title" => "Dicas"
+        ]);
+        
+        echo $this->view->render("tips");
     }
 
 }

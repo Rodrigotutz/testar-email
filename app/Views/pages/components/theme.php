@@ -13,7 +13,12 @@
 </head>
 
 <body>
-    <main>
+
+    <header>
+        <?php $this->insert("components/navbar")?>
+    </header>
+
+    <main style="min-height: 100vh;" class="d-flex justify-content-center align-items-center">
         <?= $this->section("content") ?>
     </main>
 
