@@ -64,4 +64,16 @@
   border-bottom: 1px solid #000;
 }
 
+body::-webkit-scrollbar {
+  width: 4px;
+}
+
+body::-webkit-scrollbar-track {
+  background: rgb(39, 39, 39);        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */

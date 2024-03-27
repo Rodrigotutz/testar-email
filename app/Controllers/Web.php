@@ -21,7 +21,8 @@ class Web extends Controller {
 
     public function email(): void {
         $this->view->addData([
-            "title" => getenv("APP_NAME")
+            "title" => getenv("APP_NAME"),
+            "mailClass" => "active"
         ]);
         echo $this->view->render("smtp");
     }
