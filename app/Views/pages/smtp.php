@@ -1,5 +1,10 @@
 <?php $this->layout("components/theme") ?>
 
+<div id="containerLoading" class="d-none flex-column justify-content-center align-items-center text-white" style="position: fixed; height:100vh; width:100%; background: rgba(0,0,0,0.6);" id="loading">
+    <h2 class="fw-bold">Enviando email...</h2>
+    <img style="width: 50px;" src="<?=asset("images/loading.gif")?>" alt="Carregando">
+</div>
+
 <div class="container d-flex align-items-center flex-column ">
     <h2 class="text-center">Testar Email</h2>
     <form class="row mt-3" style="width: 70%;" method="POST" action="<?= $router->route('web.send') ?>">
@@ -42,8 +47,18 @@
         </div>
 
         <div class="text-center mt-3">
-            <button class="btn btn-dark" type="submit" style="width:80px">Enviar</button>
+            <button class="btn btn-dark" id="send" type="submit" style="width:80px">Enviar</button>
         </div>
         
     </form>
 </div>
+
+<script>
+    var send = document.querySelector("#send")
+    var containerLoading = document.querySelector("#containerLoading")
+
+    send.addEventListener("click", () => {
+        containerLoading.classList.remove("d-none")
+        containerLoading.classList.add("d-flex")
+    })
+</script>
